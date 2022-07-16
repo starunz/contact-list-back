@@ -1,5 +1,3 @@
-
-import '../setup.js';
 import { MongoClient } from 'mongodb';
 
 const {
