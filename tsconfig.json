@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+		"noImplicitAny": false,
+    "esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+    "module": "es6",
+    "moduleResolution": "node",
+    "outDir": "dist",
+		"lib": [
+			"ES2021.String"
+		]
+  },
+  "ts-node": {
+    "esm": true
+  }
+}
