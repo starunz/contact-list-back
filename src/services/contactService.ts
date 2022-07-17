@@ -31,6 +31,7 @@ const editContact = async (updateContactInfo: UpdateContactInfo) => {
 	const formattedContact = formatContactInfo(contactInfo);
 
 	await findContactOrFail(contactId);
+	await findNoContactOrFail(formattedContact.phone);
 
 	const updatedInfo = await contactRepository.update({
 		contactInfo: formattedContact,
