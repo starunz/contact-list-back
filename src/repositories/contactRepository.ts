@@ -33,11 +33,11 @@ const findById = async (id: string) => {
 const findByPhone = async (phone: string) => {
 	const { mongoClient, db } = await connection();
 
-	const contacts = await db.collection(collection).findOne({ phone });
+	const contact = await db.collection(collection).findOne({ phone });
 	
 	await mongoClient.close();
 
-	return contacts;
+	return contact;
 };
 
 const insert = async (contactInfo: CreateContactBody) => {

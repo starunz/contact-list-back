@@ -2,5 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npx eslint src --ext .ts
-#npx eslint tests --ext .ts
-#npm run test
+npx eslint tests --ext .ts
+npm run test
