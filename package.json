@@ -11,8 +11,7 @@
     "start:test": "dotenv -e .env.test npx nodemon ./src/server.ts",
     "start:watch": "npx nodemon ./src/server.ts",
     "test": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest --watch -i",
-    "test:coverage": "dotenv -e .env.test npm run test -- --coverage",
+    "test:coverage": "dotenv -e .env.test npm run test -- -- -- --coverage",
     "seed": "ts-node ./src/database/seed.ts",
     "git:update": "git add . && git status"
   },
