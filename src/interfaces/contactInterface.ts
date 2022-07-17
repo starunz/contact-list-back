@@ -5,6 +5,12 @@ interface CreateContactBody {
 	img: string
 }
 
+interface UpdateContactInfo {
+	contactInfo: CreateContactBody
+	contactId: string
+}
+
 export {
 	CreateContactBody,
+	UpdateContactInfo,
 };

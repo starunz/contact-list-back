@@ -9,6 +9,11 @@ const contactSchema = Joi.object<CreateContactBody>({
 	img: Joi.string().required()
 }).length(4);
 
+const contactIdSchema = Joi.object({
+	contactId: Joi.string().length(24),
+}).length(1);
+
 export {
 	contactSchema,
+	contactIdSchema,
 };

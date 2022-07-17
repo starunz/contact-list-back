@@ -19,9 +19,26 @@ async function postContact(req: Request, res: Response, next: NextFunction) {
 	const contactInfo = req.body as CreateContactBody;
 
 	try {
-		const contacts = await contactService.createContact(contactInfo);
+		const createdInfo = await contactService.createContact(contactInfo);
 		
-		return res.status(201).send(contacts);
+		return res.status(201).send(createdInfo);
+
+	} catch (error) {
+		next(error);
+	}
+}
+
+async function updateContact(req: Request, res: Response, next: NextFunction) {
+	const contactInfo = req.body as CreateContactBody;
+	const contactId = req.params.contactId;
+
+	try {
+		const updatedInfo = await contactService.editContact({
+			contactInfo,
+			contactId,
+		});
+
+		return res.status(200).send(updatedInfo);
 
 	} catch (error) {
 		next(error);
@@ -31,4 +48,5 @@ async function postContact(req: Request, res: Response, next: NextFunction) {
 export {
 	getAllContacts,
 	postContact,
+	updateContact,
 };
