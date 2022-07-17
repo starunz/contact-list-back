@@ -1,4 +1,5 @@
 import connection from '../../src/database/database';
+import { ObjectId } from 'mongodb';
 
 const disconnectServer = async () => {
 	const { mongoClient } = await connection();
@@ -22,8 +23,15 @@ const deleteContacts = async () => {
 	await mongoClient.close();
 };
 
+const generateMongoId = (idStr?: string) => {
+	const _id = idStr ? new ObjectId(idStr) : new ObjectId();
+
+	return _id;
+};
+
 export {
 	disconnectServer,
 	deleteHealth,
 	deleteContacts,
+	generateMongoId,
 };
