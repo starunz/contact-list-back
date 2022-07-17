@@ -23,4 +23,10 @@ contactRouter.put(
 	contactController.updateContact,
 );
 
+contactRouter.delete(
+	'/:contactId',
+	schemaValidation.paramsMiddleware(contactIdSchema),
+	contactController.deleteContact,
+);
+
 export default contactRouter;

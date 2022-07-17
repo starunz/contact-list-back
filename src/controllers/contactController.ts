@@ -45,8 +45,22 @@ async function updateContact(req: Request, res: Response, next: NextFunction) {
 	}
 }
 
+async function deleteContact(req: Request, res: Response, next: NextFunction) {
+	const contactId = req.params.contactId;
+
+	try {
+		const deletedInfo = await contactService.removeContact(contactId);
+
+		return res.status(200).send(deletedInfo);
+
+	} catch (error) {
+		next(error);
+	}
+}
+
 export {
 	getAllContacts,
 	postContact,
 	updateContact,
+	deleteContact,
 };

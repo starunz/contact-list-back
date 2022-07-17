@@ -66,12 +66,25 @@ const update = async (updateContactInfo: UpdateContactInfo) => {
 	return updated;
 };
 
+const deleteOne = async (contactId: string) => {
+	const _id = makeMongoId(contactId);
+
+	const { mongoClient, db } = await connection();
+
+	const updated = await db.collection(collection).deleteOne({ _id });
+	
+	await mongoClient.close();
+
+	return updated;
+};
+
 const contactRepository = {
 	findAll,
 	findById,
 	findByPhone,
 	insert,
 	update,
+	deleteOne,
 };
 
 export {

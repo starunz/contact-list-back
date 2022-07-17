@@ -25,13 +25,6 @@ const createContact = async (contactInfo: CreateContactBody) => {
 	return insertedInfo;
 };
 
-const findNoContactOrFail = async (phoneNumber: string) => {
-	const existentContact = await contactRepository.findByPhone(phoneNumber);
-	if (existentContact) throw new ExistentContactError(phoneNumber);
-
-	return existentContact;
-};
-
 const editContact = async (updateContactInfo: UpdateContactInfo) => {
 	const { contactInfo, contactId } = updateContactInfo;
 	
@@ -47,6 +40,21 @@ const editContact = async (updateContactInfo: UpdateContactInfo) => {
 	return updatedInfo;
 };
 
+const removeContact = async (contactId: string) => {
+	await findContactOrFail(contactId);
+
+	const deletedInfo = await contactRepository.deleteOne(contactId);
+
+	return deletedInfo;
+};
+
+const findNoContactOrFail = async (phoneNumber: string) => {
+	const existentContact = await contactRepository.findByPhone(phoneNumber);
+	if (existentContact) throw new ExistentContactError(phoneNumber);
+
+	return existentContact;
+};
+
 const findContactOrFail = async (contactId: string) => {
 	const existentContact = await contactRepository.findById(contactId);
 	if (!existentContact) throw new NoContactError(contactId);
@@ -58,4 +66,5 @@ export {
 	getContacts,
 	createContact,
 	editContact,
+	removeContact,
 };
