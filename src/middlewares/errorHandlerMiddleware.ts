@@ -6,6 +6,8 @@ const errorHandlerMiddleware = (err, req: Request, res: Response, next: NextFunc
 	const { name: errorName, message, status } = err;
 
 	if (isPersonalizedError(errorName)) return res.status(status).send(message);
+
+	if (errorName === 'BSONTypeError') return res.status(400).send('Invalid id format!');
 	
 	next(err);
 };
