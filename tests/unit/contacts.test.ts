@@ -44,12 +44,13 @@ describe('contactService: editContact', () => {
 	it('should throw conflict error if contact with number already exists', async () => {
 		const contactInfo = makeContactInfo({});
 		const _id = generateMongoId();
+		const other_id = generateMongoId();
 		const contactId = _id.toString();
 
 		jest.spyOn(contactRepository, 'findById')
 			.mockResolvedValueOnce({ ...contactInfo, _id });
 		jest.spyOn(contactRepository, 'findByPhone')
-			.mockResolvedValueOnce({ ...contactInfo, _id });
+			.mockResolvedValueOnce({ ...contactInfo, _id: other_id });
 		
 		const result = sut.editContact({ contactInfo, contactId });
 		await expect(result).rejects.toThrowError(ExistentContactError);

@@ -31,7 +31,7 @@ const editContact = async (updateContactInfo: UpdateContactInfo) => {
 	const formattedContact = formatContactInfo(contactInfo);
 
 	await findContactOrFail(contactId);
-	await findNoContactOrFail(formattedContact.phone);
+	await findNoOtherContactOrFail(contactId, formattedContact.phone);
 
 	const updatedInfo = await contactRepository.update({
 		contactInfo: formattedContact,
@@ -59,6 +59,15 @@ const findNoContactOrFail = async (phoneNumber: string) => {
 const findContactOrFail = async (contactId: string) => {
 	const existentContact = await contactRepository.findById(contactId);
 	if (!existentContact) throw new NoContactError(contactId);
+
+	return existentContact;
+};
+
+const findNoOtherContactOrFail = async (id: string, phoneNumber: string) => {
+	const existentContact = await contactRepository.findByPhone(phoneNumber);
+	const isSameUser = Boolean(existentContact?._id.toString() === id);
+
+	if (existentContact && !isSameUser) throw new ExistentContactError(phoneNumber);
 
 	return existentContact;
 };

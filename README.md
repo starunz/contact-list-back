@@ -30,9 +30,9 @@ Na Contact List API você poderá adicionar, editar e deletar seus contatos, sem
 	- [⚙ Como usar](#-como-usar)
 		- [Instalando o app](#instalando-o-app)
 		- [Instalando a API](#instalando-a-api)
+		- [Preparando setup](#preparando-setup)
 		- [Iniciando o servidor](#iniciando-o-servidor)
 		- [Populando banco de dados](#populando-banco-de-dados)
-		- [Preparando setup](#preparando-setup)
 		- [Inicializando a API](#inicializando-a-api)
 	- [📜 Documentação](#-documentação)
 		- [`GET /health`](#get-health)
@@ -80,6 +80,11 @@ cd contact-list-back
 npm install
 ```
 
+
+### Preparando setup
+Na pasta principal da API, crie um arquivo `.env.dev` aos mesmos moldes do arquivo [`.env.example`](https://github.com/starunz/contact-list-back/blob/main/.env.example). Caso você queira ver nossos testes em ação, crie um arquivo `.env.test` também aos mesmos moldes do [`.env.example`](https://github.com/starunz/contact-list-back/blob/main/.env.example).
+
+
 ### Iniciando o servidor
 
 ```bash
@@ -103,9 +108,6 @@ npm run seed
 ```
 Caso queira ver, a população do database será feita através [desse script](https://github.com/starunz/contact-list-back/blob/main/src/database/seed.ts). Além disso, a estrutura do nosso banco de dados pode ser vista através [desse arquivo](https://github.com/starunz/contact-list-back/blob/main/src/database/mock/contactsMock.ts)!
 
-
-### Preparando setup
-Na pasta principal da API, crie um arquivo `.env.dev` aos mesmos moldes do arquivo [`.env.example`](https://github.com/starunz/contact-list-back/blob/main/.env.example).
 
 ### Inicializando a API
 ```bash
