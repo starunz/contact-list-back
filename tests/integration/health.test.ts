@@ -20,4 +20,7 @@ describe('GET /health', () => {
 	});
 });
 
-afterAll(disconnectServer);
+afterAll(async () => {
+	await deleteHealth();
+	await disconnectServer();
+});

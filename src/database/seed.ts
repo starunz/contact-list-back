@@ -13,6 +13,8 @@ const seed = async () => {
 
 	await db.collection('contacts').deleteMany({});
 	await db.collection('contacts').insertMany(contactsMock);
+
+	console.log('Seed realizado com sucesso!!!');
 	
 	mongoClient.close();
 };
