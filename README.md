@@ -13,7 +13,7 @@ Na Contact List API você poderá adicionar, editar e deletar seus contatos, sem
 - [x] [`Verificar se o server está funcionando`](#get-health)
 - [x] [`Buscar lista de contatos`](#get-contacts)
 - [x] [`Adicionar contato`](#post-contacts)
-- [x] [`Edidar dados de um contato`](#put-contactscontactid)
+- [x] [`Editar dados de um contato`](#put-contactscontactid)
 - [x] [`Remover contato`](#delete-contactscontactid)
 
 <br/>
