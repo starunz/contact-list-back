@@ -5,7 +5,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node ./dist/src/server.js",
+    "build": "tsc",
+    "start": "node dist/src/server.js",
     "start:prod": "dotenv -e .env.prod node ./src/server.ts",
     "start:dev": "ts-node ./src/server.ts",
     "start:test": "dotenv -e .env.test npx nodemon ./src/server.ts",

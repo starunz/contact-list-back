@@ -9,7 +9,7 @@ const contactsMock = [
 		name: 'Vucco de Teste',
 		phone: '22888887777',
 		email: 'vuccodeteste@teste.com',
-		img: 'https://img.quizur.com/f/img62af7cae8c5635.67809264.jpeg?lastEdited=1655667893',
+		img: 'https://img.elo7.com.br/product/zoom/27B1D10/dragao-banguela-como-treinar-seu-dragao.jpg',
 	},
 	{
 		name: 'Teste da Silva',
